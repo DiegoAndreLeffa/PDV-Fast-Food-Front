@@ -1,9 +1,9 @@
 import Payment from "./bodyPay";
-import CardProducts from "./cardProdutos";
+import CardProducts from "./cardProduts";
 import Kitchen from "./kitchen";
-import ModalFinalPedido from "./modalFinalPedido";
+import ModalFinalOrder from "./modalFinalOrder";
 
 import Navbar from "./navbar";
 import Withdraw from "./withdraw";
 
-export { Navbar, CardProducts, Payment, ModalFinalPedido, Kitchen, Withdraw };
+export { Navbar, CardProducts, Payment, ModalFinalOrder, Kitchen, Withdraw };

@@ -3,14 +3,14 @@ import { IoClose } from "react-icons/io5";
 import ModalPedidoStyle from "./style";
 import { FC } from "react";
 
-interface ModalFinalPedidoProps {
+interface ModalFinalOrderProps {
   setOpenModalPedido: (value: React.SetStateAction<boolean>) => void;
   setSelectedButton: (value: React.SetStateAction<string>) => void;
   setPay: (value: React.SetStateAction<boolean>) => void;
   setPedidos: (value: React.SetStateAction<any[]>) => void;
 }
 
-const ModalFinalPedido: FC<ModalFinalPedidoProps> = ({
+const ModalFinalOrder: FC<ModalFinalOrderProps> = ({
   setOpenModalPedido,
   setSelectedButton,
   setPay,
@@ -41,4 +41,4 @@ const ModalFinalPedido: FC<ModalFinalPedidoProps> = ({
   );
 };
 
-export default ModalFinalPedido;
+export default ModalFinalOrder;

@@ -4,9 +4,9 @@ import { FaMoneyBillAlt } from "react-icons/fa";
 import PaymentStyled from "./style";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
-import { ModalFinalPedido } from "..";
+import { ModalFinalOrder } from "..";
 
-interface PedidoItem {
+interface OrderItem {
   item: {
     name: string;
     img: string;
@@ -22,7 +22,7 @@ interface PedidoResumido {
   extras: string[];
 }
 
-interface PedidoObj {
+interface OrderObj {
   codigo: number;
   nome: string;
   itens: PedidoResumido[];
@@ -32,10 +32,10 @@ interface PedidoObj {
 }
 
 interface PaymentProps {
-  pedidos: PedidoItem[];
+  pedidos: OrderItem[];
   setPay: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedButton: React.Dispatch<React.SetStateAction<string>>;
-  setPedidos: React.Dispatch<React.SetStateAction<PedidoItem[]>>;
+  setPedidos: React.Dispatch<React.SetStateAction<OrderItem[]>>;
 }
 
 const Payment: React.FC<PaymentProps> = ({
@@ -51,7 +51,7 @@ const Payment: React.FC<PaymentProps> = ({
   const [nomeCliente, setNomeCliente] = useState<string>("");
   const [openModalPedido, setOpenModalPedido] = useState<boolean>(false);
 
-  const incrementarCodigo = () => {
+  const incrementCodigo = () => {
     setCodigo((codigo) => codigo + 1);
   };
 
@@ -92,7 +92,7 @@ const Payment: React.FC<PaymentProps> = ({
       return;
     }
 
-    incrementarCodigo();
+    incrementCodigo();
 
     const pedidosResumidos = pedidos.map((pedido) => {
       const { item, quantity, extras } = pedido;
@@ -106,7 +106,7 @@ const Payment: React.FC<PaymentProps> = ({
     const primeiraImagem =
       pedidos.length > 0 ? pedidos[0].item.img + ".png" : "";
 
-    const pedidoObj: PedidoObj = {
+    const pedidoObj: OrderObj = {
       codigo,
       nome: nomeCliente,
       itens: pedidosResumidos,
@@ -127,7 +127,7 @@ const Payment: React.FC<PaymentProps> = ({
   return (
     <PaymentStyled>
       {openModalPedido && (
-        <ModalFinalPedido
+        <ModalFinalOrder
           setOpenModalPedido={setOpenModalPedido}
           setSelectedButton={setSelectedButton}
           setPay={setPay}
