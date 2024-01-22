@@ -12,7 +12,6 @@ const Navbar: React.FC<NavbarProps> = ({
   setSelectedButton,
   selectedButton,
 }) => {
-  //onClick={setPay(false)}
   return (
     <Nav className="navbar">
       <div className="navbar-logo">
